@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rptNhanVienTK" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9999da8f-1c56-45b2-9466-7565fa2f003c">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="QuanLyLuong"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<parameter name="sMaNV" class="java.lang.String"/>
+	<parameter name="sMaNV2" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT "BangLuongNhanVien".thang,
+	"BangLuongNhanVien".nam,
+	"BangLuongNhanVien".luong,
+	"NhanVien"."maNhanVien",
+	"NhanVien"."hoTenNhanVien",
+	"NhanVien"."gioiTinh",
+	"NhanVien"."ngaySinh",
+	"NhanVien"."ngayBatDauLamViec",
+	"NhanVien"."CMND",
+	"NhanVien"."diaChi",
+	"NhanVien"."troCap",
+	"NhanVien"."soDienThoai",
+	"NhanVien"."heSoluong",
+	"NhanVien"."tenDangNhap"
+FROM "BangLuongNhanVien"
+	INNER JOIN "NhanVien" ON 
+	 "BangLuongNhanVien"."maNhanVien" = "NhanVien"."maNhanVien"
+	 WHERE "BangLuongNhanVien".thang =  $P{sMaNV}  and "BangLuongNhanVien".nam =  $P{sMaNV2}]]>
+	</queryString>
+	<field name="thang" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="thang"/>
+		<property name="com.jaspersoft.studio.field.label" value="thang"/>
+	</field>
+	<field name="nam" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="nam"/>
+		<property name="com.jaspersoft.studio.field.label" value="nam"/>
+	</field>
+	<field name="luong" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="luong"/>
+		<property name="com.jaspersoft.studio.field.label" value="luong"/>
+	</field>
+	<field name="maNhanVien" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="maNhanVien"/>
+		<property name="com.jaspersoft.studio.field.label" value="maNhanVien"/>
+	</field>
+	<field name="hoTenNhanVien" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="hoTenNhanVien"/>
+		<property name="com.jaspersoft.studio.field.label" value="hoTenNhanVien"/>
+	</field>
+	<field name="gioiTinh" class="java.lang.Boolean">
+		<property name="com.jaspersoft.studio.field.name" value="gioiTinh"/>
+		<property name="com.jaspersoft.studio.field.label" value="gioiTinh"/>
+	</field>
+	<field name="ngaySinh" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="ngaySinh"/>
+		<property name="com.jaspersoft.studio.field.label" value="ngaySinh"/>
+	</field>
+	<field name="ngayBatDauLamViec" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="ngayBatDauLamViec"/>
+		<property name="com.jaspersoft.studio.field.label" value="ngayBatDauLamViec"/>
+	</field>
+	<field name="CMND" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="CMND"/>
+		<property name="com.jaspersoft.studio.field.label" value="CMND"/>
+	</field>
+	<field name="diaChi" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="diaChi"/>
+		<property name="com.jaspersoft.studio.field.label" value="diaChi"/>
+	</field>
+	<field name="troCap" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="troCap"/>
+		<property name="com.jaspersoft.studio.field.label" value="troCap"/>
+	</field>
+	<field name="soDienThoai" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="soDienThoai"/>
+		<property name="com.jaspersoft.studio.field.label" value="soDienThoai"/>
+	</field>
+	<field name="heSoluong" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="heSoluong"/>
+		<property name="com.jaspersoft.studio.field.label" value="heSoluong"/>
+	</field>
+	<field name="tenDangNhap" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="tenDangNhap"/>
+		<property name="com.jaspersoft.studio.field.label" value="tenDangNhap"/>
+	</field>
+	<variable name="LuongCaoNhat" class="java.math.BigDecimal" calculation="Highest">
+		<variableExpression><![CDATA[$F{luong}]]></variableExpression>
+	</variable>
+	<variable name="SumLuongNV" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{luong}]]></variableExpression>
+	</variable>
+	<variable name="LuongThapNhat" class="java.math.BigDecimal" calculation="Lowest">
+		<variableExpression><![CDATA[$F{luong}]]></variableExpression>
+	</variable>
+	<variable name="AvtLuongNV" class="java.math.BigDecimal" calculation="Average">
+		<variableExpression><![CDATA[$F{luong}]]></variableExpression>
+	</variable>
+	<variable name="CountNV" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{maNhanVien}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="216" y="0" width="123" height="30" uuid="c47f7fb3-d649-4046-a3ac-1d04b60085f6"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nhân viên]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="20" splitType="Stretch">
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="-10" y="0" width="100" height="20" uuid="656f0f26-80d7-474a-a2b7-ec7e17cb25a0"/>
+				<textElement>
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField pattern="HH:mm">
+				<reportElement x="90" y="-1" width="50" height="21" uuid="b5a26261-29c3-48ac-8b92-83d4b5e80b14"/>
+				<textElement>
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="31" splitType="Stretch">
+			<line>
+				<reportElement x="270" y="10" width="5" height="5" uuid="211eb9d1-b271-4862-a3a8-8535b8fc5ae4"/>
+			</line>
+			<staticText>
+				<reportElement x="-11" y="1" width="90" height="30" uuid="8c5a45f7-70d3-4d32-a838-df895142443d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3e8fd982-2a77-4f49-b081-595ee4162be0"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Mã nhân viên]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="0" width="100" height="30" uuid="7fa2481f-1149-489f-ac26-9c7468b38c6d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="92077593-e6dd-4d40-ab1b-c323e3b0974a"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Họ tên nhân viên]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="190" y="1" width="50" height="30" uuid="ba81c43b-dba5-4f89-ab79-e27631bc87b2">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1c3e1b9d-e7a0-4551-88bc-0a75ee6d2ff4"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Giới tính]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="250" y="0" width="70" height="30" uuid="6724eb20-b596-4c37-acbb-4a6d9794436a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7fe76e1d-f8e0-427c-b7cf-b2ca08996533"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ngày sinh]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="410" y="0" width="40" height="30" uuid="08dfc2af-e399-4d4a-a354-de5ddc4c5d96">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c19cbfef-ff2e-4cf7-8ec5-e361430387df"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tháng]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="460" y="0" width="30" height="30" uuid="d2562e55-6f52-4561-8109-7988dc00adbe">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cab995df-7eb7-4683-a55e-3c78db430b7b"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Năm]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="500" y="0" width="70" height="30" uuid="79214915-c85e-47dc-b4ad-32faa984fe1a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="164b0b49-9f9f-415c-9267-2dcaaaea1e38"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Lương]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="320" y="1" width="80" height="30" uuid="6e511362-dc3b-47af-b9f3-bf969ab3c716">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1c3e1b9d-e7a0-4551-88bc-0a75ee6d2ff4"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Hệ số lương]]></text>
+			</staticText>
+			<line>
+				<reportElement x="-20" y="1" width="595" height="1" uuid="262e3da7-9c6b-41b2-ad5b-0e8951318337"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="31" splitType="Stretch">
+			<textField>
+				<reportElement x="-10" y="0" width="89" height="30" uuid="2045be17-dee3-4d53-bd4f-6fb2747c0b7a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ca769f21-6de6-4229-aa02-09d00780f367"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{maNhanVien}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="0" width="100" height="30" uuid="9c03f948-a624-405b-9a8c-a3d734cff99f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8a7061aa-0c75-41ea-9892-07b8444493b7"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{hoTenNhanVien}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="190" y="0" width="49" height="30" uuid="e18c0126-476d-4917-a4c9-5c17bd0eac72">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="54b92920-7d36-404e-bf7c-14fd6749ea91"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{gioiTinh}) == true ? "Nữ" : "Nam"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="250" y="0" width="70" height="30" uuid="91c97d98-81dd-4b21-8970-2ac05e0fb3c7">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c76c413b-5de2-40a2-b0de-bd85666a95c8"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("dd/MM/yyyy").format($F{ngaySinh})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="320" y="0" width="80" height="30" uuid="e37096bd-5a39-4b7f-9254-0f252ee984a1">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8af0a497-0f30-4fd9-bb61-e59e8e66529f"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{heSoluong}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="410" y="0" width="40" height="30" uuid="3a8df9b0-b301-48a7-93ed-8d2cbed1c60e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2365144f-0916-4361-8814-c0e6f1eee742"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{thang}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="460" y="0" width="30" height="30" uuid="ddbd8c8e-259c-42ee-8b39-34f3c6c9c409">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="31ecb593-be54-403b-bc9a-eda156af12ed"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nam}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.##¤;#,##0.##- ¤">
+				<reportElement x="500" y="0" width="70" height="30" uuid="ab05f531-a5ac-48f2-87ea-3a8ce4477314">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="54209839-5b63-4ac4-8352-379b31f0a344"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{luong}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="-30" y="0" width="605" height="1" uuid="3de4dfbf-8594-4688-8203-225b07c56bb0"/>
+			</line>
+			<line>
+				<reportElement x="-20" y="30" width="595" height="1" uuid="150cf170-3683-46c6-ad4d-e10a838cc0d1"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="190" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="120" width="150" height="30" uuid="5027383a-00ba-4193-b68d-0504ceb387ea"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tổng lương nhân viên:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="160" width="210" height="30" uuid="b414a5e5-87fb-4c6e-9d4f-234b3df5ac73"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Trung bình tổng lương nhân viên:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="150" height="30" uuid="2613a789-b6d4-4545-96c9-bbc00153e69c"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Số nhân viên:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="40" width="210" height="30" uuid="2a018b4c-4ff3-4972-ac20-f7113e272116"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Lương nhân viên cao nhất:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="80" width="210" height="30" uuid="3e5ed5b0-4ac9-4667-b716-16c84c452f43"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Lương nhân viên thấp nhất:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="470" y="0" width="100" height="30" uuid="eacff022-4430-47f7-9ca1-95752a468385"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{CountNV}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.##¤;#,##0.##- ¤">
+				<reportElement x="470" y="40" width="100" height="30" uuid="8d8b2d5a-41b6-45d1-87d4-6fe4005eac39"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{LuongCaoNhat}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.##¤;#,##0.##- ¤">
+				<reportElement x="470" y="80" width="100" height="30" uuid="609f9396-09fd-46a8-9fc2-a555038438b1"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{LuongThapNhat}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.##¤;#,##0.##- ¤">
+				<reportElement x="470" y="120" width="100" height="30" uuid="8e943157-15c0-4df4-a242-175518734e4a"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{SumLuongNV}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.##¤;#,##0.##- ¤">
+				<reportElement x="450" y="160" width="120" height="30" uuid="f7458572-a84e-4711-b89c-d88807fea25d"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{AvtLuongNV}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
